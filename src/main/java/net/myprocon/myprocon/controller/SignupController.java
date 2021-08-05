@@ -27,7 +27,7 @@ public class SignupController {
     // User Registration page
     @GetMapping("/signup")
     public String getSignup(Model model, Locale locale,
-                            @ModelAttribute @Validated SignupForm form) {
+                            @ModelAttribute SignupForm form) {
 
         // Retrieve Gender
         Map<String, Integer> genderMap  = userApplicationService.getGenderMap(locale);
@@ -40,7 +40,7 @@ public class SignupController {
     @PostMapping("/signup")
     public String postSignup(Model model, Locale locale,
 
-        @ModelAttribute SignupForm form,
+        @ModelAttribute @Validated SignupForm form,
                              BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
