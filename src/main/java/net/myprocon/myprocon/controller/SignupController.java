@@ -1,6 +1,7 @@
 package net.myprocon.myprocon.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import net.myprocon.myprocon.form.GroupOrder;
 import net.myprocon.myprocon.form.SignupForm;
 import net.myprocon.myprocon.service.UserApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class SignupController {
     @PostMapping("/signup")
     public String postSignup(Model model, Locale locale,
 
-        @ModelAttribute @Validated SignupForm form,
+        @ModelAttribute @Validated(GroupOrder.class) SignupForm form,
                              BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
