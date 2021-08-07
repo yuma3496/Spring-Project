@@ -1,2 +1,4 @@
-package net.myprocon.myprocon.domain.user.model;public class MUser {
+package net.myprocon.myprocon.domain.user.model;
+
+public class MUser {
 }

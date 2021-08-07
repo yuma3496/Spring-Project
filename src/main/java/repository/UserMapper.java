@@ -1,2 +1,4 @@
-package repository;public interface UserMapper {
+package repository;
+
+public interface UserMapper {
 }

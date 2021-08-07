@@ -1,2 +1,4 @@
-package net.myprocon.myprocon.service.impl;public class UserServiceImpl {
+package net.myprocon.myprocon.service.impl;
+
+public class UserServiceImpl {
 }

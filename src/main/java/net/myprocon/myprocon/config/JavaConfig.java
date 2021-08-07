@@ -1,2 +1,4 @@
-package net.myprocon.myprocon.config;public class JavaConfig {
+package net.myprocon.myprocon.config;
+
+public class JavaConfig {
 }
