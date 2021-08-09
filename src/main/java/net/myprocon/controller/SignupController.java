@@ -1,6 +1,10 @@
 package net.myprocon.controller;
 
+import java.util.Locale;
+import java.util.Map;
+
 import lombok.extern.slf4j.Slf4j;
+
 import net.myprocon.domain.user.model.MUser;
 import net.myprocon.form.GroupOrder;
 import net.myprocon.form.SignupForm;
@@ -16,9 +20,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Locale;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/user")

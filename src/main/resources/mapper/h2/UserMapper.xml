@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- Mapper & xml Mapping -->
-<mapper namespace="com.example.repository.UserMapper">
+<mapper namespace="net.myprocon.repository.UserMapper">
 
     <!-- User Registration -->
     <insert id="insertOne">
