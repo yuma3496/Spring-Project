@@ -1,9 +1,12 @@
-package net.myprocon.myprocon.controller;
+package net.myprocon.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import net.myprocon.myprocon.form.GroupOrder;
-import net.myprocon.myprocon.form.SignupForm;
-import net.myprocon.myprocon.service.UserApplicationService;
+import net.myprocon.domain.user.model.MUser;
+import net.myprocon.form.GroupOrder;
+import net.myprocon.form.SignupForm;
+import net.myprocon.domain.user.service.UserApplicationService;
+import net.myprocon.domain.user.service.UserService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +27,12 @@ public class SignupController {
 
     @Autowired
     private UserApplicationService userApplicationService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     // User Registration page
     @GetMapping("/signup")
@@ -51,6 +60,12 @@ public class SignupController {
 
         log.info(form.toString());
         // Redirect to login page
+
+        //Convert form into MUser class
+        MUser user = modelMapper.map(form, MUser.class);
+
+        //User Registration
+        userService.signup(user);
 
         return "redirect:/login";
     }

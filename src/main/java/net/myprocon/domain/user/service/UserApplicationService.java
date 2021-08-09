@@ -1,6 +1,5 @@
-package net.myprocon.myprocon.service;
+package net.myprocon.domain.user.service;
 
-import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;

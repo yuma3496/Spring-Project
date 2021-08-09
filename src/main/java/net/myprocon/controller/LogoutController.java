@@ -1,4 +1,4 @@
-package net.myprocon.myprocon.controller;
+package net.myprocon.controller;
 
 import ch.qos.logback.classic.Logger;
 import groovy.util.logging.Slf4j;

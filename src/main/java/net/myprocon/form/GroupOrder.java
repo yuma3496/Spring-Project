@@ -1,4 +1,4 @@
-package net.myprocon.myprocon.form;
+package net.myprocon.form;
 
 import javax.validation.GroupSequence;
 

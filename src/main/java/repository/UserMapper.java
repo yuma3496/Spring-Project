@@ -1,6 +1,6 @@
 package repository;
 
-import net.myprocon.myprocon.domain.user.model.MUser;
+import net.myprocon.domain.user.model.MUser;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

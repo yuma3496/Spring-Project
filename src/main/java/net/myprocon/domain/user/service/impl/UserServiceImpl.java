@@ -1,11 +1,11 @@
-package net.myprocon.myprocon.service.impl;
+package net.myprocon.domain.user.service.impl;
 
-import net.myprocon.myprocon.domain.user.model.MUser;
-import net.myprocon.myprocon.service.UserService;
+import net.myprocon.domain.user.model.MUser;
+import net.myprocon.domain.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import repository.UserMapper;
 
-public class UserServiceImpl extends UserService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper mapper;
