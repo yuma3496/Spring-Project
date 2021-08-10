@@ -3,7 +3,7 @@ package net.myprocon.domain.user.service.impl;
 import net.myprocon.domain.user.model.MUser;
 import net.myprocon.domain.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import repository.UserMapper;
+import net.myprocon.repository.UserMapper;
 
 public class UserServiceImpl implements UserService {
 
