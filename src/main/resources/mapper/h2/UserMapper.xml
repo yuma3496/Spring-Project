@@ -3,10 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- Mapper & xml Mapping -->
-<mapper namespace="net.myprocon.domain.user.service.UserService">
+<mapper namespace="net.myprocon.domain.user.model.MUser">
 
     <!-- User Registration -->
-    <insert id="signup">
+    <insert id="insertOne">
         insert into m_user(
         user_id,
         password,

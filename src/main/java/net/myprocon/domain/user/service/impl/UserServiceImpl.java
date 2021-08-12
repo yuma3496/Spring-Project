@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import net.myprocon.repository.UserMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -18,5 +20,11 @@ public class UserServiceImpl implements UserService {
         user.setDepartmentId(1); //Department
         user.setRole("ROLE_GENERAL"); //Role
         mapper.insertOne(user);
+    }
+
+    // Get User List
+    @Override
+    public List<MUser> getUsers() {
+        return mapper.findMany();
     }
 }
