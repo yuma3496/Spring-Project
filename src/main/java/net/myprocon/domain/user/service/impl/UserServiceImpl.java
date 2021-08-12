@@ -4,7 +4,9 @@ import net.myprocon.domain.user.model.MUser;
 import net.myprocon.domain.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import net.myprocon.repository.UserMapper;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired

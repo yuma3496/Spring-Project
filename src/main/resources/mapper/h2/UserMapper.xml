@@ -28,4 +28,12 @@
         #{role}
         )
     </insert>
+
+    <!-- User Registration (multiple users) -->
+    <select id="findMany" resultType="MUser">
+        select
+        *
+        from
+        m_user
+    </select>
 </mapper>
