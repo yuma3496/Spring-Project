@@ -3,10 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- Mapper & xml Mapping -->
-<mapper namespace="net.myprocon.repository.UserMapper">
+<mapper namespace="net.myprocon.domain.user.service.UserService">
 
     <!-- User Registration -->
-    <insert id="insertOne">
+    <insert id="signup">
         insert into m_user(
         user_id,
         password,
@@ -16,8 +16,8 @@
         gender,
         department_id,
         role
-        )
-        values (
+
+        ) values (
         #{userId},
         #{password},
         #{userName},
@@ -25,7 +25,7 @@
         #{age},
         #{gender},
         #{departmentId},
-        #{role},
+        #{role}
         )
     </insert>
 </mapper>
