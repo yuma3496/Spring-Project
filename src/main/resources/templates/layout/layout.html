@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"></meta>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- CSS -->
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
@@ -28,7 +28,9 @@
 <!-- Contents -->
 <div class="container-fluid">
     <div class="row">
-        <div layout:fragment="content="></div>
+        <div class="col-sm-10 offset-sm-2 main">
+            <div layout:fragment="content"></div>
+        </div>
     </div>
 </div>
 
