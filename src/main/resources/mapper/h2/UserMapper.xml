@@ -3,10 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- Mapper & xml Mapping -->
-<mapper namespace="net.myprocon.domain.user.model.MUser">
+<mapper namespace="net.myprocon.domain.user.service.UserService">
 
     <!-- User Registration -->
-    <insert id="insertOne">
+    <insert id="signup">
         insert into m_user(
         user_id,
         password,
@@ -30,10 +30,7 @@
     </insert>
 
     <!-- User Registration (multiple users) -->
-    <select id="findMany" resultType="MUser">
-        select
-        *
-        from
-        m_user
+    <select id="getUsers" resultType="map">
+        select * from m_user
     </select>
 </mapper>

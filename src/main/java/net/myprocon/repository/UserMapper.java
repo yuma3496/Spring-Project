@@ -12,5 +12,4 @@ public interface UserMapper {
 
     // User list
     public List<MUser> findMany();
-
 }
