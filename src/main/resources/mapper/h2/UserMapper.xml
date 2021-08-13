@@ -29,7 +29,7 @@
         )
     </insert>
 
-    <!-- User Registration (multiple users) -->
+    <!-- Get multiple users) -->
     <select id="getUsers" resultType="map">
         select * from m_user
     </select>

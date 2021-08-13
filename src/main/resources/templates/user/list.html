@@ -3,7 +3,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/layout}">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"></meta>
     <title>User List</title>
     <!-- CSS -->
     <link rel="stylesheet" th:href="@{/css/user/list.css}">
@@ -14,30 +14,31 @@
     <div class="header border-bottom">
         <h1 class="h2">User List</h1>
     </div>
-</div>
+
 
 <!-- User list-->
 <div>
     <table class="table table-striped table-bordered table-hover">
         <thead class="thead-light">
         <tr>
-            <th clas="th-width">User ID</th>
-            <th clas="th-width">User Name</th>
-            <th clas="th-width">Birthdate</th>
-            <th clas="th-width">Age</th>
-            <th clas="th-width">Gender</th>
+            <th class="th-width">User ID</th>
+            <th class="th-width">User Name</th>
+            <th class="th-width">Birthdate</th>
+            <th class="th-width">Age</th>
+            <th class="th-width">Gender</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="item:${userList}">
-            <td th:text="${item.userID}"></td>
-            <td th:text="${item.userName}"></td>
-            <td th:text="${dates.format(item.birthday, 'YYYY/MM/dd')}"></td>
+        <tr th:each="item: ${userList}">
+            <td th:text="${item.user_id}"></td>
+            <td th:text="${item.user_name}"></td>
+            <td th:text="${#dates.format(item.birthday, 'YYYY/MM/dd')}"></td>
             <td th:text="${item.age}"></td>
-            <td th:text="${item.gender == 1}?'Male':'Female'"></td>
+            <td th:text="${item.gender == 1} ? 'Male':'Female'"></td>
         </tr>
         </tbody>
     </table>
+</div>
 </div>
 
 </body>
