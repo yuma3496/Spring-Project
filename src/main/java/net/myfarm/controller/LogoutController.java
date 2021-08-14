@@ -1,6 +1,5 @@
-package net.myprocon.controller;
+package net.myfarm.controller;
 
-import ch.qos.logback.classic.Logger;
 import groovy.util.logging.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;

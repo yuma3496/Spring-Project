@@ -1,6 +1,6 @@
-package net.myprocon.repository;
+package net.myfarm.repository;
 
-import net.myprocon.domain.user.model.MUser;
+import net.myfarm.domain.user.model.MUser;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

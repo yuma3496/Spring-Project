@@ -1,4 +1,4 @@
-package net.myprocon.config;
+package net.myfarm.config;
 
 import org.modelmapper.ModelMapper;
 import org.mybatis.spring.annotation.MapperScan;

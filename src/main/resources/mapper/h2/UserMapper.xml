@@ -3,10 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- Mapper & xml Mapping -->
-<mapper namespace="net.myprocon.domain.user.service.UserService">
+<mapper namespace="net.myfarm.domain.user.service.UserService">
 
     <!-- Mapping Definition (User) -->
-    <resultMap id="user" type="net.myprocon.domain.user.model.MUser">
+    <resultMap id="user" type="net.myfarm.domain.user.model.MUser">
         <id column="user_id" property="userId" />
         <result column="password" property="password" />
         <result column="user_name" property="userName" />

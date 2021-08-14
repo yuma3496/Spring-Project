@@ -1,4 +1,4 @@
-package net.myprocon.domain.user.service;
+package net.myfarm.domain.user.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;

@@ -1,4 +1,4 @@
-package net.myprocon.domain.user.model;
+package net.myfarm.domain.user.model;
 
 import lombok.Data;
 

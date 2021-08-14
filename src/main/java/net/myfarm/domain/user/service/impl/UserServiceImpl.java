@@ -1,9 +1,9 @@
-package net.myprocon.domain.user.service.impl;
+package net.myfarm.domain.user.service.impl;
 
-import net.myprocon.domain.user.model.MUser;
-import net.myprocon.domain.user.service.UserService;
+import net.myfarm.domain.user.model.MUser;
+import net.myfarm.domain.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import net.myprocon.repository.UserMapper;
+import net.myfarm.repository.UserMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

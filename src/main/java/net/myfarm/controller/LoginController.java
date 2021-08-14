@@ -1,4 +1,4 @@
-package net.myprocon.controller;
+package net.myfarm.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

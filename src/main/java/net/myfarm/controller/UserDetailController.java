@@ -1,4 +1,4 @@
-package net.myprocon.controller;
+package net.myfarm.controller;
 
 public class UserDetailController {
 }

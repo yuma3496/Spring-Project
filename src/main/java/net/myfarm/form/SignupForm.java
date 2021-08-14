@@ -1,4 +1,4 @@
-package net.myprocon.form;
+package net.myfarm.form;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;

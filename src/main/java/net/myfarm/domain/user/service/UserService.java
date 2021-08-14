@@ -1,7 +1,6 @@
-package net.myprocon.domain.user.service;
+package net.myfarm.domain.user.service;
 
-import net.myprocon.domain.user.model.MUser;
-import org.springframework.stereotype.Service;
+import net.myfarm.domain.user.model.MUser;
 
 import java.util.List;
 
