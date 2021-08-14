@@ -5,6 +5,17 @@
 <!-- Mapper & xml Mapping -->
 <mapper namespace="net.myprocon.domain.user.service.UserService">
 
+    <!-- Mapping Definition (User) -->
+    <resultMap id="user" type="net.myprocon.domain.user.model.MUser">
+        <id column="user_id" property="userId" />
+        <result column="password" property="password" />
+        <result column="user_name" property="userName" />
+        <result column="birthday" property="birthday" />
+        <result column="gender" property="gender" />
+        <result column="department_id" property="departmentId" />
+        <result column="role" property="role" />
+    </resultMap>
+
     <!-- User Registration -->
     <insert id="signup">
         insert into m_user(
@@ -32,5 +43,9 @@
     <!-- Get multiple users) -->
     <select id="getUsers" resultType="map">
         select * from m_user
+    </select>
+
+    <select id="findOne" resultMap="user">
+        select * from m_user where user_d = #{userId}
     </select>
 </mapper>
