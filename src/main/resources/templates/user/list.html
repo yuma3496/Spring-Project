@@ -37,7 +37,7 @@
             <td th:text="${item.age}"></td>
             <td th:text="${item.gender == 1} ? 'Male':'Female'"></td>
             <td>
-                <a class="btn btn-primary" th:href="@{'/user/detail/' + ${item.userId}}">
+                <a class="btn btn-primary" th:href="@{'/user/detail/' + ${item.user_id}}">
                     Detail
                 </a>
             </td>

@@ -3,12 +3,12 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/layout}">
 <head>
-    <meta charset="UTF-8">
     <title>User Details</title>
     <!-- CSS -->
     <link rel="stylesheet" th:href="@{/css/user/list.css}">
 </head>
 <body>
+<div layout:fragment="content">
 <div class="header border-bottom">
     <h1 class="h2">User Detail</h1>
 </div>
@@ -35,7 +35,7 @@
         </tr>
         <tr>
             <th>Birthday</th>
-            <td th:text="{#dates.format(birthday, 'YYYY/MM/dd')}"></td>
+            <td th:text="*{#dates.format(birthday, 'YYYY/MM/dd')}"></td>
         </tr>
         <tr>
             <th>Age</th>
@@ -43,12 +43,11 @@
         </tr>
         <tr>
             <th>Gender</th>
-            <td th:text="*{gender == 1 ? ': 'Female'}"></td>
+            <td th:text="*{gender == 1 ? 'male': 'Female'}"></td>
         </tr>
         </tbody>
     </table>
 </form>
-</div>
 
 </body>
 </html>

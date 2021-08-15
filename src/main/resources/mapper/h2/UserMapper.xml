@@ -46,7 +46,7 @@
     </select>
 
     <!-- Find One User -->
-    <select id="findOne" resultMap="user">
-        select * from m_user where user_d = #{userId}
+    <select id="getUserOne" resultType="net.myfarm.domain.user.model.MUser">
+        select * from m_user where user_id = #{userId}
     </select>
 </mapper>
