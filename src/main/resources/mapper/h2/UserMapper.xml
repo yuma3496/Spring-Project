@@ -45,6 +45,7 @@
         select * from m_user
     </select>
 
+    <!-- Find One User -->
     <select id="findOne" resultMap="user">
         select * from m_user where user_d = #{userId}
     </select>

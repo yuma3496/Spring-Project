@@ -11,4 +11,6 @@ public interface UserService {
 
     // Get User List
     public List<MUser> getUsers();
+
+    public MUser getUserOne(String userId);
 }
