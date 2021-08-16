@@ -24,13 +24,27 @@ public class UserServiceImpl implements UserService {
 
     // Get User List
     @Override
-    public List<MUser> getUsers() {
-        return mapper.findMany();
+    public List<MUser> getUsers(MUser user) {
+        return mapper.findMany(user);
     }
 
     // Get One User
     @Override
     public MUser getUserOne(String userId) {
         return mapper.findOne(userId);
+    }
+
+    // Update One User
+    @Override
+    public void updateUserOne(String userId,
+                              String password,
+                              String userName) {
+        mapper.updateOne(userId, password, userName);
+    }
+
+    // Delete One User
+    @Override
+    public void deleteUserOne(String userId) {
+        int count = mapper.deleteOne(userId);
     }
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -21,7 +22,7 @@ public class UserDetailController {
     @Autowired
     private ModelMapper modelMapper;
 
-    // Get User Detail Page
+    /* Get User Detail Page */
     @GetMapping("/detail/{userId:.+}")
     public String getUser(UserDetailForm form, Model model,
                           @PathVariable("userId") String userId) {
@@ -39,4 +40,28 @@ public class UserDetailController {
         // User Detail Page
         return "user/detail";
     }
-}
+
+    /* Update User */
+    @PostMapping(value = "/detail", params = "update")
+    public String updateUser(UserDetailForm form, Model model) {
+
+        // Update User
+        userService.updateUserOne(form.getUserId(),
+                form.getPassword(),
+                form.getUserName());
+
+        // Redirect to User List Page
+        return "redirect:/user/list";
+    }
+
+    /* Delete User */
+    @PostMapping(value = "/detail", params = "delete")
+    public String deleteUser(UserDetailForm form, Model model) {
+
+        // Delete User
+        userService.deleteUserOne((form.getUserId()));
+
+        // Redirect to User List
+        return "redirect:/user/list";
+        }
+    }
