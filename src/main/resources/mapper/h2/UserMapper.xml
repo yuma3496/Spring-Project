@@ -41,20 +41,20 @@
     </insert>
 
     <!-- Get multiple users) -->
-    <select id="getUsers" resultType="map">
+    <select id="getUsers" resultType="net.myfarm.domain.user.service.UserService">
         select * from m_user
         <where>
             <if test="userId != null">
                 user_id like '%' || #{userId} || '%'
             </if>
             <if test="userName != null">
-                and user_name like '%% || #{userName} || '%'
+                and user_name like '%' || #{userName} || '%'
             </if>
         </where>
     </select>
 
     <!-- Find One User -->
-    <select id="getUserOne" resultType="net.myfarm.domain.user.model.MUser">
+    <select id="getUserOne" resultType="net.myfarm.domain.user.service.UserService">
         select * from m_user where user_id = #{userId}
     </select>
 
