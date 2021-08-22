@@ -5,6 +5,12 @@
 <!-- Mapper & xml Mapping -->
 <mapper namespace="net.myfarm.domain.user.service.UserService">
 
+    <!-- Mapping Definition (Department -->
+    <resultMap id="department" type="net.myfarm.domain.user.mode.Department">
+        <id column="department_id" property="departmentId"></id>
+        <result column="department_name" property="departmentName"/>
+    </resultMap>
+
     <!-- Mapping Definition (User) -->
     <resultMap id="user" type="net.myfarm.domain.user.model.MUser">
         <id column="user_id" property="userId" />
@@ -14,6 +20,7 @@
         <result column="gender" property="gender" />
         <result column="department_id" property="departmentId" />
         <result column="role" property="role" />
+        <association property="department" resultMap="department"/>
     </resultMap>
 
     <!-- User Registration -->
@@ -55,7 +62,9 @@
 
     <!-- Find One User -->
     <select id="getOne" resultType="net.myfarm.domain.user.service.UserService">
-        select * from m_user where user_id = #{userId}
+        select * from m_user
+        left join m_department on m_user.department_id = m_department.department_id
+        where user_id = #{userId}
     </select>
 
     <!-- Update One User -->
