@@ -54,17 +54,17 @@
     </select>
 
     <!-- Find One User -->
-    <select id="getUserOne" resultType="net.myfarm.domain.user.service.UserService">
+    <select id="getOne" resultType="net.myfarm.domain.user.service.UserService">
         select * from m_user where user_id = #{userId}
     </select>
 
     <!-- Update One User -->
-    <update id="updateUserOne">
+    <update id="updateOne">
         update m_user set password = #{password}, user_name = #{userName} where user_id = #{userId}
     </update>
 
     <!-- Delete One User -->
-    <delete id="deleteUserOne">
+    <delete id="deleteOne">
         delete from m_user where user_id = #{userId}
     </delete>
 </mapper>

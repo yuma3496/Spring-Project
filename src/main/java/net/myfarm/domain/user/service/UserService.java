@@ -1,6 +1,7 @@
 package net.myfarm.domain.user.service;
 
 import net.myfarm.domain.user.model.MUser;
+import org.springframework.web.bind.annotation.InitBinder;
 
 import java.util.List;
 
@@ -17,8 +18,8 @@ public interface UserService {
 
     // Update User (one user only)
     public void updateUserOne(String userId,
-                              String password,
-                              String userName);
+                                       String password,
+                                       String userName);
 
     // Delete User (one user only)
     public void deleteUserOne(String userId);
