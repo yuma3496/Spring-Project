@@ -18,6 +18,16 @@
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
+		<!-- SpringSecurity-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<!-- Thymeleaf Extras (Security) -->
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+		</dependency>
 		<!-- Spring AOP-->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -90,6 +100,11 @@
 			<groupId>org.modelmapper.extensions</groupId>
 			<artifactId>modelmapper-spring</artifactId>
 			<version>2.3.9</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>5.5.1</version>
 		</dependency>
 	</dependencies>
 
