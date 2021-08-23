@@ -2,8 +2,10 @@ package net.myfarm.form;
 
 import lombok.Data;
 import net.myfarm.domain.user.model.Department;
+import net.myfarm.domain.user.model.Salary;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 public class UserDetailForm {
@@ -14,4 +16,5 @@ public class UserDetailForm {
     private Integer age;
     private Integer gender;
     private Department department;
+    private List<Salary> salaryList;
 }

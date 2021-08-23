@@ -1,5 +1,6 @@
 package net.myfarm.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import net.myfarm.domain.user.model.MUser;
 import net.myfarm.domain.user.service.UserService;
 import net.myfarm.form.UserDetailForm;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/user")
+@Slf4j
 public class UserDetailController {
 
     @Autowired
@@ -33,6 +35,7 @@ public class UserDetailController {
 
         // Convert MUser into form
         form = modelMapper.map(user, UserDetailForm.class);
+        form.setSalaryList(user.getSalaryList());
 
         // Register model
         model.addAttribute("userDetailForm", form);
@@ -45,10 +48,14 @@ public class UserDetailController {
     @PostMapping(value = "/detail", params = "update")
     public String updateUser(UserDetailForm form, Model model) {
 
-        // Update User
-        userService.updateUserOne(form.getUserId(),
-                form.getPassword(),
-                form.getUserName());
+        try {
+            // Update User
+            userService.updateUserOne(form.getUserId(),
+                    form.getPassword(),
+                    form.getUserName());
+        } catch (Exception e) {
+            log.error("User update error", e);
+        }
 
         // Redirect to User List Page
         return "redirect:/user/list";

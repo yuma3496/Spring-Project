@@ -5,6 +5,7 @@ import net.myfarm.domain.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import net.myfarm.repository.UserMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -35,11 +36,15 @@ public class UserServiceImpl implements UserService {
     }
 
     // Update One User
+    @Transactional
     @Override
     public void updateUserOne(String userId,
                               String password,
                               String userName) {
         mapper.updateOne(userId, password, userName);
+
+        // Exception
+        int i = 1 / 0;
     }
 
     // Delete One User

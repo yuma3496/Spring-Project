@@ -12,14 +12,13 @@ import net.myfarm.domain.user.service.UserApplicationService;
 import net.myfarm.domain.user.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/user")
@@ -69,5 +68,34 @@ public class SignupController {
         userService.signup(user);
 
         return "redirect:/login";
+
+    // Exception handling for databases
+    @ExceptionHandler(DataAccessException.class)
+    public String dataAccessExceptionHandler(DataAccessException e, Model model) {
+
+        // Set empty string
+        model.addAttribute("error", "");
+
+        // Add model to message
+        model.addAttribute("message", "Exception Error in SignupController");
+
+        // HTTP error code (500) to model
+        model.addAttribute("status", HttpStatus.INTERNAL_SERVER_ERROR);
+
+        return "error";
+        }
+
+    // Other exception handling
+    @ExceptionHandler(Exception.class)
+    public String exceptionHandler(Exception e, Model model) {
+
+            // Set empty string
+            model.addAttribute("error", "");
+
+            // Add messages to Model
+            model.addAttribute("status", HttpStatus.INTERNAL_SERVER_ERROR);
+
+            return "error";
+        }
     }
 }
