@@ -16,7 +16,7 @@ public class GlobalControlAdvice {
         model.addAttribute("error", "");
 
         // Add messages to Model
-        model.addAttribute(("message", "Data Access Exception"));
+        model.addAttribute("message", "Data Access Exception");
 
         // HTTP Error Code (500) to Model
         model.addAttribute("status", HttpStatus.INTERNAL_SERVER_ERROR);
@@ -29,7 +29,7 @@ public class GlobalControlAdvice {
     public String exceptionHandler(Exception e, Model model) {
 
         // Set empty string
-        model.addAttribute(("error", ""));
+        model.addAttribute("error", "");
 
         // Add messages to Model
         model.addAttribute("message", "Exception Error");

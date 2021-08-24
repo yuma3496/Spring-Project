@@ -71,18 +71,18 @@ public class SignupController {
 
     // Exception handling for databases
     @ExceptionHandler(DataAccessException.class)
-    public String dataAccessExceptionHandler(DataAccessException e, Model model) {
+    public String dataAccessExceptionHandler(DataAccessException e, Model model){
 
-        // Set empty string
-        model.addAttribute("error", "");
+            // Set empty string
+            model.addAttribute("error", "");
 
-        // Add model to message
-        model.addAttribute("message", "Exception Error in SignupController");
+            // Add model to message
+            model.addAttribute("message", "Exception Error in SignupController");
 
-        // HTTP error code (500) to model
-        model.addAttribute("status", HttpStatus.INTERNAL_SERVER_ERROR);
+            // HTTP error code (500) to model
+            model.addAttribute("status", HttpStatus.INTERNAL_SERVER_ERROR);
 
-        return "error";
+            return "error";
         }
 
     // Other exception handling

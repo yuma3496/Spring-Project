@@ -23,4 +23,7 @@ public interface UserService {
 
     // Delete User (one user only)
     public void deleteUserOne(String userId);
+
+    // Get Login user
+    public MUser getLoginUser(String userId);
 }

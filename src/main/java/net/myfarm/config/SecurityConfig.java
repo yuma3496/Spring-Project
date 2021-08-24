@@ -1,5 +1,6 @@
 package net.myfarm.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -7,12 +8,17 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private UserDetailsService userDetailsService;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -53,8 +59,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .passwordParameter("password")  // Password for login page
                         .defaultSuccessUrl("/user/list", true);// Redirect if successful
 
-        // CSRF
-        http.csrf().disable();
+        // Logout
+        http
+                .logout()
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout");
+
+        // Disable CSRF (temporarily)
+        //http.csrf().disable();
     }
 
     // Authorization
@@ -63,6 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         PasswordEncoder encoder = passwordEncoder();
         // Main memory authorization
+        /*
         auth
                 .inMemoryAuthentication()
                 .withUser("user") // Add User
@@ -74,5 +88,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .password(encoder.encode("admin"))
                 .password("admin")
                 .roles("ADMIN");
+
+         */
+
+        // Authorization with User data
+        auth
+                .userDetailsService(userDetailsService)
+                .passwordEncoder(encoder);
     }
 }
