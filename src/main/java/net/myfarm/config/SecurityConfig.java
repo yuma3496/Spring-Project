@@ -47,6 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/login").permitAll() // Direct link is okay
                 .antMatchers("/users/signup").permitAll() // Direct link is okay
+                .antMatchers("/admin").hasAuthority("ROLE_ADMIN") // Authority restriction
                 .anyRequest().authenticated(); // Except this, direct link is okay
 
         // Login
