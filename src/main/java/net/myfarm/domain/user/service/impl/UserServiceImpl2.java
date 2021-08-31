@@ -6,6 +6,8 @@ import net.myfarm.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,7 +49,14 @@ public class UserServiceImpl2 implements UserService {
         // Get user list
         @Override
         public List<MUser> getUsers(MUser user) {
-            return repository.findAll();
+
+            // Search Condition
+            ExampleMatcher matcher = ExampleMatcher
+                    .matching() // and Condition
+                    .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING) // Like
+                    .withIgnoreCase(); // Uppercase & Lowercase
+
+            return repository.findAll(Example.of(user, matcher));
     }
 
         // Get one user
@@ -62,8 +71,13 @@ public class UserServiceImpl2 implements UserService {
         @Transactional
         @Override
         public void updateUserOne(String userId, String password, String userName) {
-        }
 
+            // Password Encryption
+            String encryptPassword = encoder.encode(password);
+
+            // Update user
+            repository.updateUser(userId, encryptPassword, userName);
+        }
 
         // Delete user (one user)
         @Override
@@ -71,6 +85,12 @@ public class UserServiceImpl2 implements UserService {
             Optional<MUser> option = repository.findById(userId);
             MUser user = option.orElse(null);
             return user;
+        }
+
+        // Get login user
+        @Override
+        public MUser getLoginUser(String userId) {
+            return repository.findLoginUser(userId);
         }
     }
 }
