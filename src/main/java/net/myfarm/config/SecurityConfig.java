@@ -90,7 +90,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .password(encoder.encode("admin"))
                 .password("admin")
                 .roles("ADMIN");
-
          */
 
         // Authorization with User data
